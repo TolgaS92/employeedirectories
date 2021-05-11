@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import API from '../../utils/API';
-import SearchForm from '../../components/SearchForm';
-import Alert from "../../components/Alert";
-import Navbar from '../../components/Navbar';
-import Wrapper from '../../components/Wrapper';
-import Table from '../../components/Table';
+import API from '../utils/API';
+import SearchForm from '../components/SearchForm';
+import Alert from "../components/Alert";
+import Navbar from '../components/Navbar';
+import Wrapper from '../components/Wrapper';
+import Table from '../components/Table';
 
-/* search bar */
+
 function Search() {
+     
     const [ search, setSearch] = useState("");
     const [error, setError] = useState("");
 

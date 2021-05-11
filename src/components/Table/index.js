@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Databody from '../Databody';
+import SearchResult from '../SearchResult.js';
 class Table extends Component {
 render()    {
     return (
@@ -14,7 +14,7 @@ render()    {
                         <th scope="col">DoB</th>
                     </tr>
                 </thead>
-                <Databody />
+                <SearchResult />
             </table>
         </div>
     )
