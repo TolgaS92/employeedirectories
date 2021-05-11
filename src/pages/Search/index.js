@@ -6,7 +6,7 @@ import Navbar from '../../components/Navbar';
 import Wrapper from '../../components/Wrapper';
 import Table from '../../components/Table';
 
-
+/* search bar */
 function Search() {
     const [ search, setSearch] = useState("");
     const [error, setError] = useState("");
