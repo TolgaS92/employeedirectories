@@ -11,11 +11,10 @@ function SearchForm(props) {
           value={props.search}
           onChange={props.handleInputChange}
           name="term"
-          list="term"
           type="text"
           className="form-control"
           placeholder="Name"
-          id="term"
+          id="search"
         />
       </div>
     </form>

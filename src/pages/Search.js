@@ -1,52 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import API from '../utils/API';
 import SearchForm from '../components/SearchForm';
-import Alert from "../components/Alert";
 import Navbar from '../components/Navbar';
-import Wrapper from '../components/Wrapper';
 import Table from '../components/Table';
 
-
-function Search() {
-     
-    const [ search, setSearch] = useState("");
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-        if(!search) {
-            return;
-        }
-
-        API.getMultipleUsers(search)
-        .then(res => {
-            if(res.data.length === 0) {
-                throw new Error("No result found!");
-            }
-            if(res.data.status === "error") {
-                throw new Error(res.data.message);
-            }
-        })
-        .catch(err => setError(err));
-    }, [search]);
-    
-    const handleInputChange = event => {
-        setSearch(event.target.value);
+class Search extends Component {
+    state = {
+        search: "",
+        results: [],
+    }
+    componentDidMount() {
+        this.searchEmployees("");
+      }
+      searchEmployees = (query) => {
+        // API.search(query) goes here
+        API.getMultipleUsers(query)
+          // .then this.setState
+          .then((res) => this.setState({ results: res.data.results }))
+          .catch((err) => console.log(err));
       };
+    handleInputChange = event => {
+        const name = event.target.name;
+        const value = event.target.value;
+        this.setState({
+          [name]: value
+        });
+      };
+      handleFormSubmit = (event) => {
+        // e.preventDefault()
+        event.preventDefault();
+        this.searchEmployees(this.state.search);
+      };
+    render(){
     return (
         <div>
             <Navbar />
-            <Wrapper>
-            <Alert type="danger" style={{ opacity: error ? 1 : 0, marginBottom: 10 }}>
-                {error}
-            </Alert>
-            <SearchForm
-                handleInputChange={handleInputChange}
-                results={search}
+            <SearchForm 
+            search={this.state.search}
+            handleFormSubmit={this.handleFormSubmit}
+            handleInputChange={this.handleInputChange}
             />
-            <Table />
-            </Wrapper>
+            <Table results={this.state.results}/>
         </div>
     );
+}
 }
 
 export default Search;
