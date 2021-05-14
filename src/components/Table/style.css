@@ -1,0 +1,10 @@
+.sortArrow {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  cursor: pointer; /* Pointer/hand icon */
+  border-top: 5px solid #6e1414;
+  margin-top: 60px;
+  position: relative;
+  top: 15px;
+  left: 10px;
+}
