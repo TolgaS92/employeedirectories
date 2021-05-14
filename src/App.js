@@ -1,9 +1,13 @@
 import React from "react";
-import Search from './pages/Search';
+import Table from './components/Table';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <Search />
+    <div>
+      <Navbar />
+      <Table />
+    </div>
   );
 }
 

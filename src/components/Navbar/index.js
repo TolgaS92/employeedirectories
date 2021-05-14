@@ -1,4 +1,5 @@
 import React from 'react';
+
 function Navbar() {
     return (
         <nav className="navbar navbar-light bg-warning p-5 d-flex justify-content-center">
