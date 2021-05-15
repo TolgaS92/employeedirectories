@@ -29,7 +29,7 @@
 
 ## Deployed application link
 
-- [Deployed Link](...)
+- [Deployed Link](https://tolgas92.github.io/employeedirectories/)
 
 ## Usage
 
